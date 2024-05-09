@@ -9,6 +9,12 @@ const setFrequency = new Action("net.gardna.sonoron.set-frequency");
 $SD.onConnected(
   ({ actionInfo, appInfo, connection, messageType, port, uuid }) => {
     console.log("Stream Deck connected!");
+    console.log(actionInfo);
+    console.log(appInfo);
+    console.log(connection);
+    console.log(messageType);
+    console.log(port);
+    console.log(uuid);
   }
 );
 
