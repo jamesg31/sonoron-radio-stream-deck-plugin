@@ -2,6 +2,7 @@
 /// <reference path="libs/js/stream-deck.js" />
 
 const setFrequency = new Action("net.gardna.sonoron.set-frequency");
+const toggleScan = new Action("net.gardna.sonoron.toggle-scan");
 const toggleScanFrequncy = new Action(
   "net.gardna.sonoron.toggle-scan-frequency"
 );
@@ -33,6 +34,18 @@ setFrequency.onKeyUp(({ action, context, device, event, payload }) => {
   }
   selectedContext = context;
   $SD.setState(context, 1);
+});
+
+toggleScan.onKeyUp(({ action, context, device, event, payload }) => {
+  const websocket = new WebSocket("ws://[::1]:33802");
+  websocket.onopen = () => {
+    let request = {
+      type: "set_scanning_enabled",
+      enabled: payload.state == 0 ? true : false,
+    };
+    websocket.send(JSON.stringify(request));
+    websocket.close();
+  };
 });
 
 toggleScanFrequncy.onKeyUp(({ action, context, device, event, payload }) => {
