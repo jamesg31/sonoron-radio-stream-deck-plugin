@@ -1,0 +1,45 @@
+{
+  "SDKVersion": 2,
+  "Author": "James Gardner",
+  "CodePath": "app.html",
+  "Description": "Plugin to control Sonoron Radio",
+  "Name": "Sonoran Radio Plugin",
+  "Icon": "actions/radio",
+  "Version": "0.1.0",
+  "Software": {
+    "MinimumVersion": "5.0"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.11"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Category": "Sonoron Radio",
+  "CategoryIcon": "actions/radio",
+  "Actions": [
+    {
+      "Icon": "actions/set-frequency/assets/action",
+      "Name": "Set Frequency",
+      "Controllers": ["Keypad"],
+      "Encoder": {
+        "layout": "$B1",
+        "TriggerDescription": {
+          "Push": "Set Selected Frequency"
+        }
+      },
+      "States": [
+        {
+          "Image": "actions/set-frequency/assets/action"
+        }
+      ],
+      "Tooltip": "Join the selected frequency",
+      "UUID": "net.gardna.sonoron.set-frequency",
+      "PropertyInspectorPath": "actions/set-frequency/property-inspector/inspector.html"
+    }
+  ]
+}
