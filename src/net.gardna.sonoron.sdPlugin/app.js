@@ -2,6 +2,7 @@
 /// <reference path="libs/js/stream-deck.js" />
 
 const setFrequency = new Action("net.gardna.sonoron.set-frequency");
+let selectedContext = undefined;
 
 /**
  * The first event fired when Stream Deck starts
@@ -9,12 +10,6 @@ const setFrequency = new Action("net.gardna.sonoron.set-frequency");
 $SD.onConnected(
   ({ actionInfo, appInfo, connection, messageType, port, uuid }) => {
     console.log("Stream Deck connected!");
-    console.log(actionInfo);
-    console.log(appInfo);
-    console.log(connection);
-    console.log(messageType);
-    console.log(port);
-    console.log(uuid);
   }
 );
 
@@ -26,8 +21,12 @@ setFrequency.onKeyUp(({ action, context, device, event, payload }) => {
       freq_recv: payload.settings.recv.split(".").map((i) => parseInt(i)),
       freq_xmit: payload.settings.xmit.split(".").map((i) => parseInt(i)),
     };
-    console.log(request);
     websocket.send(JSON.stringify(request));
     websocket.close();
   };
+  if (selectedContext !== undefined) {
+    $SD.setState(selectedContext, 0);
+  }
+  selectedContext = context;
+  $SD.setState(context, 1);
 });
