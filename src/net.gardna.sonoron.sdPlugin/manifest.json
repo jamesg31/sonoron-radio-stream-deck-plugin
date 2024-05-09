@@ -6,7 +6,7 @@
   "Name": "Sonoran Radio Plugin",
   "Icon": "actions/radio",
   "URL": "https://github.com/jamesg31/sonoron-radio-stream-deck-plugin",
-  "Version": "0.1.0",
+  "Version": "0.1.1",
   "Software": {
     "MinimumVersion": "5.0"
   },
