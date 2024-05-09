@@ -24,7 +24,7 @@
   "CategoryIcon": "actions/radio",
   "Actions": [
     {
-      "Icon": "actions/set-frequency/assets/action",
+      "Icon": "actions/radio",
       "Name": "Set Frequency",
       "Controllers": ["Keypad"],
       "Encoder": {
@@ -36,17 +36,42 @@
       "States": [
         {
           "Name": "Not Active",
-          "Image": "actions/set-frequency/assets/not-active"
+          "Image": "actions/not-active"
         },
         {
           "Name": "Active",
-          "Image": "actions/set-frequency/assets/active"
+          "Image": "actions/active"
         }
       ],
       "DisableAutomaticStates": true,
       "Tooltip": "Join the selected frequency",
       "UUID": "net.gardna.sonoron.set-frequency",
-      "PropertyInspectorPath": "actions/set-frequency/property-inspector/inspector.html"
+      "PropertyInspectorPath": "actions/set-frequency/inspector.html"
+    },
+    {
+      "Icon": "actions/radio",
+      "Name": "Toggle Scan Frequency",
+      "Controllers": ["Keypad"],
+      "Encoder": {
+        "layout": "$B1",
+        "TriggerDescription": {
+          "Push": "Toggle Scan Frequency"
+        }
+      },
+      "States": [
+        {
+          "Name": "Not Active",
+          "Image": "actions/not-active"
+        },
+        {
+          "Name": "Active",
+          "Image": "actions/active"
+        }
+      ],
+      "DisableAutomaticStates": false,
+      "Tooltip": "Scan the selected frequency",
+      "UUID": "net.gardna.sonoron.toggle-scan-frequency",
+      "PropertyInspectorPath": "actions/toggle-scan-frequency/inspector.html"
     }
   ]
 }
